@@ -4,7 +4,7 @@ This package is the PWA (progressive-web-app) extension for [Wapplr](https://git
 
 ```js
 //client.js
-import wapplrPwa from "wapplr-pwa";
+const wapplrPwa = require("wapplr-pwa");
 const wapplrClient = require("wapplr");
 const wapp = wapplrClient({config: {
         globals: {
