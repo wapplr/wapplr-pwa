@@ -11,7 +11,6 @@ export default async function pwa(p = {}) {
     const {DEV} = globals;
 
     const {
-
         clearCachesEnabled = DEV,
         clearCachesResolve = function ({cleared}) {
             if (cleared.length) {

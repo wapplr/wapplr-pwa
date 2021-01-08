@@ -1,16 +1,16 @@
 import wapplrClient from "wapplr";
-import pwa from "./pwa";
+import initPWA from "./initPWA";
 
 export default function createClient(p) {
     const wapp = p.wapp || wapplrClient({...p});
-    pwa({wapp, ...p});
+    initPWA({wapp, ...p});
     return wapp;
 }
 
 export function createMiddleware(p = {}) {
     return function pwaMiddleware(req, res, next) {
         const wapp = req.wapp || p.wapp || createClient;
-        pwa({wapp, ...p});
+        initPWA({wapp, ...p});
         next();
     }
 }

@@ -12,7 +12,9 @@ const wapp = wapplrClient({config: {
         }
     }
 });
+
 wapplrPwa({wapp});
+
 wapp.client.listen();
 ```
 
