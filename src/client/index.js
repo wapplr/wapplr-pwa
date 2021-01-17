@@ -3,8 +3,7 @@ import initPWA from "./initPWA";
 
 export default function createClient(p) {
     const wapp = p.wapp || wapplrClient({...p});
-    initPWA({wapp, ...p});
-    return wapp;
+    return initPWA({wapp, ...p});
 }
 
 export function createMiddleware(p = {}) {

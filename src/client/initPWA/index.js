@@ -100,4 +100,7 @@ export default async function pwa(p = {}) {
             }
         });
     }
+
+    return wapp.pwa;
+
 }
