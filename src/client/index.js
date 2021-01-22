@@ -1,15 +1,15 @@
 import wapplrClient from "wapplr";
 import initPWA from "./initPWA";
 
-export default function createClient(p) {
+export default async function createClient(p) {
     const wapp = p.wapp || wapplrClient({...p});
-    return initPWA({wapp, ...p});
+    return await initPWA({wapp, ...p});
 }
 
 export function createMiddleware(p = {}) {
-    return function pwaMiddleware(req, res, next) {
-        const wapp = req.wapp || p.wapp || createClient;
-        initPWA({wapp, ...p});
+    return async function pwaMiddleware(req, res, next) {
+        const wapp = req.wapp || p.wapp || await createClient(p).wapp;
+        await initPWA({wapp, ...p});
         next();
     }
 }
@@ -26,9 +26,10 @@ const defaultConfig = {
     }
 }
 
-export function run(p = defaultConfig) {
+export async function run(p = defaultConfig) {
 
-    const wapp = createClient(p);
+    const pwa = await createClient(p);
+    const wapp = pwa.wapp;
     const globals = wapp.globals;
     const {DEV} = globals;
 

@@ -26,9 +26,9 @@ const defaultConfig = {
     }
 }
 
-export async function run(p = defaultConfig) {
+export function run(p = defaultConfig) {
 
-    const wapp = await createServer(p);
+    const wapp = createServer(p);
     const globals = wapp.globals;
     const {DEV} = globals;
 

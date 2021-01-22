@@ -3,6 +3,7 @@ import networkChange from "./networkChange";
 import sync from "./sync";
 import register from "./register";
 import clearCache from "./clearCache";
+import {defaultDescriptor} from "wapplr-react/src/common/utils";
 
 export default async function pwa(p = {}) {
 
@@ -75,15 +76,15 @@ export default async function pwa(p = {}) {
     if (typeof wapp.pwa == "undefined") {
 
         Object.defineProperty(wapp, "pwa", {
-            enumerable: false,
+            enumerable: true,
             configurable: false,
             writable: true,
-            value: null
+            value: {}
         })
 
         await clearCache({clearCachesEnabled, clearCachesResolve, clearCachesReject, ...p});
 
-        register({
+        await register({
             enableServiceWorker,
             serviceWorkerReject,
             ...p,
@@ -99,6 +100,9 @@ export default async function pwa(p = {}) {
                 sync({syncReadyHandler, syncReject, ...p});
             }
         });
+
+        Object.defineProperty(wapp.pwa, "wapp", {...defaultDescriptor, writable: false, enumerable: false, value: wapp});
+
     }
 
     return wapp.pwa;
