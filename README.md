@@ -6,6 +6,7 @@ This package is the PWA (progressive-web-app) extension for [Wapplr](https://git
 //client.js
 import wapplrPwa from "wapplr-pwa";
 import wapplrClient from "wapplr";
+
 const wapp = wapplrClient({config: {
         globals: {
             DEV: false //if the DEV global variable was set to true the PWA clear cache when the page loading.
