@@ -3,7 +3,6 @@ import networkChange from "./networkChange";
 import sync from "./sync";
 import register from "./register";
 import clearCache from "./clearCache";
-import {defaultDescriptor} from "wapplr-react/src/common/utils";
 
 export default async function pwa(p = {}) {
 
@@ -101,7 +100,7 @@ export default async function pwa(p = {}) {
             }
         });
 
-        Object.defineProperty(wapp.pwa, "wapp", {...defaultDescriptor, writable: false, enumerable: false, value: wapp});
+        Object.defineProperty(wapp.pwa, "wapp", {configurable: false, writable: false, enumerable: false, value: wapp});
 
     }
 
