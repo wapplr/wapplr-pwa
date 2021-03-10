@@ -7,7 +7,7 @@ export default async function clearCache(p = {}) {
                 cacheNames.map(function (cacheName) {
                     return caches.delete(cacheName);
                 })
-            )
+            );
 
             const cleared = [];
             const fail = [];
@@ -17,7 +17,7 @@ export default async function clearCache(p = {}) {
                 } else {
                     fail.push(cacheName);
                 }
-            })
+            });
 
             if (cleared.length === cacheNames.length) {
                 if (clearCachesResolve) {

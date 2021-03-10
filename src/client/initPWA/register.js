@@ -17,7 +17,7 @@ export default async function register(p = {}) {
             navigator.serviceWorker.getRegistrations().then( async function(registrations) {
                 await Promise.all(registrations.map( async function (reg) {
                     return await reg.unregister();
-                }))
+                }));
                 if (serviceWorkerReject){
                     return serviceWorkerReject({info: { message: "ServiceWorker not enabled"}})
                 }

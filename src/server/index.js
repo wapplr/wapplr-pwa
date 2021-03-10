@@ -1,7 +1,7 @@
 import wapplrServer from 'wapplr';
 
 export default function createServer(p = {}) {
-    console.log("[wapplr-pwa] There is not server side module in this package")
+    console.log("[wapplr-pwa] There is not server side module in this package");
     return p.wapp || wapplrServer({...p});
 }
 
@@ -9,7 +9,7 @@ export function createMiddleware(p = {}) {
     return function pwaMiddleware(req, res, next) {
         // eslint-disable-next-line no-unused-vars
         const wapp = req.wapp || p.wapp || createServer(p);
-        console.log("[wapplr-pwa] There is not server side module in this package")
+        console.log("[wapplr-pwa] There is not server side module in this package");
         next();
     }
 }
@@ -24,7 +24,7 @@ const defaultConfig = {
             ROOT: (typeof ROOT !== "undefined") ? ROOT : __dirname
         }
     }
-}
+};
 
 export function run(p = defaultConfig) {
 

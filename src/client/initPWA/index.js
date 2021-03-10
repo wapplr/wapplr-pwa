@@ -51,7 +51,7 @@ export default async function pwa(p = {}) {
         syncReadyHandler = async function ({reg}) {
             console.log("[PWA] Sync service is ready");
             return reg.sync.register("syncTag").then(function () {
-                console.log("[PWA] Sync registrated")
+                console.log("[PWA] Sync registered")
             }).catch(function (err) {
                 syncReject({err})
             })
@@ -59,7 +59,7 @@ export default async function pwa(p = {}) {
 
         enableServiceWorker = true,
         serviceWorkerResolve = function ({reg}) {
-            console.log("[PWA] Service Worker registrated");
+            console.log("[PWA] Service Worker registered");
         },
         serviceWorkerReject = function (p = {}) {
             const {err, info} = p;
@@ -79,7 +79,7 @@ export default async function pwa(p = {}) {
             configurable: false,
             writable: true,
             value: {}
-        })
+        });
 
         await clearCache({clearCachesEnabled, clearCachesResolve, clearCachesReject, ...p});
 
