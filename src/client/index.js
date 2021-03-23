@@ -29,6 +29,10 @@ const defaultConfig = {
 
 export async function run(p = defaultConfig) {
 
+    if (p?.config?.globals && !p.config.globals.RUN){
+        p.config.globals.RUN = p.config?.globals.NAME || "wapplr-pwa"
+    }
+
     const pwa = await createClient(p);
     const wapp = pwa.wapp;
     const globals = wapp.globals;

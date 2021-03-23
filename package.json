@@ -22,7 +22,7 @@
         "wapplr-pwa build": "wapplr-cli build",
         "wapplr-pwa clean": "wapplr-cli clean"
     },
-    "version": "1.0.21",
+    "version": "1.0.24",
     "files": [
         "dist/*"
     ],
