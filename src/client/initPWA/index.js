@@ -21,7 +21,7 @@ export default async function pwa(p = {}) {
         },
         clearCachesReject = function ({err}) {
             if (err){
-                console.error("[PWA] Clear cache error: " + err.message)
+                console.log("[PWA] Clear cache error: " + err.message)
             }
         },
 
@@ -31,7 +31,7 @@ export default async function pwa(p = {}) {
         },
         notifyReject = function ({err, info}) {
             if (err){
-                console.error("[PWA] Notify error: " + err.message)
+                console.log("[PWA] Notify error: " + err.message)
             } else if (info){
                 console.info("[PWA] Notify info: " + info.message)
             }
@@ -43,9 +43,9 @@ export default async function pwa(p = {}) {
         syncReject = function (p = {}) {
             const {err} = p;
             if (err) {
-                console.error("[PWA] Failed to register sync: " + err.message)
+                console.log("[PWA] Failed to register sync: " + err.message)
             } else {
-                console.error("[PWA] Serviceworker/sync not supported");
+                console.log("[PWA] Serviceworker/sync not supported");
             }
         },
         syncReadyHandler = async function ({reg}) {
@@ -64,7 +64,7 @@ export default async function pwa(p = {}) {
         serviceWorkerReject = function (p = {}) {
             const {err, info} = p;
             if (err){
-                console.error("[PWA] ServiceWorker error: " + err.message)
+                console.log("[PWA] ServiceWorker error: " + err.message)
             } else if (info){
                 console.info("[PWA] ServiceWorker info: " + info.message)
             }
