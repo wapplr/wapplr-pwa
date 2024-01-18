@@ -76,7 +76,7 @@ export default async function pwa(p = {}) {
 
         Object.defineProperty(wapp, "pwa", {
             enumerable: true,
-            configurable: false,
+            configurable: true,
             writable: true,
             value: {}
         });
