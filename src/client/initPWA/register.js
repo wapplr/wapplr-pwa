@@ -1,7 +1,7 @@
 export default async function register(p = {}) {
-    const {enableServiceWorker = true, serviceWorkerResolve, serviceWorkerReject} = p;
+    const {enableServiceWorker = true, serviceWorkerResolve, serviceWorkerReject, serviceWorkerRegisterOptions} = p;
     if ("serviceWorker" in navigator && enableServiceWorker) {
-        navigator.serviceWorker.register('/serviceWorker.js', { scope: "./" })
+        navigator.serviceWorker.register('/serviceWorker.js', serviceWorkerRegisterOptions)
             .then(function(reg) {
                 if (serviceWorkerResolve){
                     return serviceWorkerResolve({reg})
